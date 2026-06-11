@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weather App</title>
+  <meta name="description" content="A weather planning interface for city forecasts, alerts, saved locations, and daily activity recommendations.">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <section>
+        <p class="eyebrow">Public starter project</p>
+        <h1>Weather App</h1>
+        <p class="lede">A weather planning interface for city forecasts, alerts, saved locations, and daily activity recommendations.</p>
+        <div class="actions">
+          <a class="button primary" href="#workspace">Explore dashboard</a>
+          <a class="button" href="#add-item">Add item</a>
+        </div>
+      </section>
+      <form class="quick-form" id="add-item">
+        <label for="itemInput">Quick add</label>
+        <div class="input-row">
+          <input id="itemInput" name="item" autocomplete="off" placeholder="Add a new item">
+          <button type="submit">Add</button>
+        </div>
+      </form>
+    </header>
+
+    <section class="stats" id="stats" aria-label="Key metrics"></section>
+
+    <section class="workspace" id="workspace">
+      <article class="panel wide">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Workspace</p>
+            <h2>Live items</h2>
+          </div>
+          <div class="filters" aria-label="Filters">
+            <button type="button" data-filter="all" class="active">All</button>
+            <button type="button" data-filter="Ready">Ready</button>
+            <button type="button" data-filter="Active">Active</button>
+          </div>
+        </div>
+        <div class="list" id="list"></div>
+      </article>
+
+      <aside class="panel">
+        <p class="eyebrow">Insights</p>
+        <h2>Signals</h2>
+        <ul id="insights"></ul>
+      </aside>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
