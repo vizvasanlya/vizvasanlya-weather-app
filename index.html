@@ -3,56 +3,141 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Weather App</title>
-  <meta name="description" content="A weather planning interface for city forecasts, alerts, saved locations, and daily activity recommendations.">
+  <title>Weather Planner</title>
+  <meta name="description" content="Plan around weather with saved cities, forecasts, alerts, air quality, and activity recommendations.">
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <main class="app">
-    <header class="hero">
-      <section>
-        <p class="eyebrow">Public starter project</p>
-        <h1>Weather App</h1>
-        <p class="lede">A weather planning interface for city forecasts, alerts, saved locations, and daily activity recommendations.</p>
-        <div class="actions">
-          <a class="button primary" href="#workspace">Explore dashboard</a>
-          <a class="button" href="#add-item">Add item</a>
-        </div>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="#">
+        <span class="logo" id="logoMark">M</span>
+        <span>
+          <strong id="brandTitle">MVP</strong>
+          <small id="brandSubtitle">Workspace</small>
+        </span>
+      </a>
+      <nav class="nav">
+        <button class="active" data-view="grid" type="button">Grid</button>
+        <button data-view="list" type="button">List</button>
+        <button data-view="analytics" type="button">Analytics</button>
+      </nav>
+      <section class="side-card">
+        <p class="muted">Selected</p>
+        <strong id="selectedTitle">No item selected</strong>
+        <p class="muted small" id="selectedMeta">Choose an item to view details.</p>
       </section>
-      <form class="quick-form" id="add-item">
-        <label for="itemInput">Quick add</label>
-        <div class="input-row">
-          <input id="itemInput" name="item" autocomplete="off" placeholder="Add a new item">
-          <button type="submit">Add</button>
+    </aside>
+
+    <main class="main">
+      <header class="hero">
+        <div>
+          <p class="eyebrow" id="eyebrow">MVP Project</p>
+          <h1 id="appTitle">App</h1>
+          <p id="appDescription" class="lede"></p>
         </div>
-      </form>
-    </header>
-
-    <section class="stats" id="stats" aria-label="Key metrics"></section>
-
-    <section class="workspace" id="workspace">
-      <article class="panel wide">
-        <div class="panel-header">
-          <div>
-            <p class="eyebrow">Workspace</p>
-            <h2>Live items</h2>
-          </div>
-          <div class="filters" aria-label="Filters">
-            <button type="button" data-filter="all" class="active">All</button>
-            <button type="button" data-filter="Ready">Ready</button>
-            <button type="button" data-filter="Active">Active</button>
-          </div>
+        <div class="hero-actions">
+          <button id="seedButton" type="button">Reset demo</button>
+          <button id="exportButton" type="button">Export JSON</button>
+          <label class="button-upload">
+            Import
+            <input id="importInput" type="file" accept="application/json">
+          </label>
         </div>
-        <div class="list" id="list"></div>
-      </article>
+      </header>
 
-      <aside class="panel">
-        <p class="eyebrow">Insights</p>
-        <h2>Signals</h2>
-        <ul id="insights"></ul>
-      </aside>
-    </section>
-  </main>
+      <section class="metrics" id="metrics"></section>
+
+      <section class="toolbar">
+        <div class="field grow">
+          <label for="searchInput">Search</label>
+          <input id="searchInput" placeholder="Search title, owner, notes...">
+        </div>
+        <div class="field">
+          <label for="statusFilter">Status</label>
+          <select id="statusFilter"></select>
+        </div>
+        <div class="field">
+          <label for="sortBy">Sort</label>
+          <select id="sortBy">
+            <option value="priority">Priority</option>
+            <option value="title">Title</option>
+            <option value="status">Status</option>
+            <option value="dueDate">Due date</option>
+            <option value="value">Value</option>
+          </select>
+        </div>
+        <button id="addButton" class="primary" type="button">Add item</button>
+      </section>
+
+      <section id="workspace" class="workspace grid-view"></section>
+
+      <section class="bottom-grid">
+        <article class="panel">
+          <div class="panel-title">
+            <div>
+              <p class="eyebrow">Details</p>
+              <h2>Item details</h2>
+            </div>
+            <button id="deleteButton" type="button" class="danger subtle">Delete</button>
+          </div>
+          <div id="details"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-title">
+            <div>
+              <p class="eyebrow">Activity</p>
+              <h2>Recent actions</h2>
+            </div>
+            <button id="clearActivityButton" type="button" class="subtle">Clear</button>
+          </div>
+          <ol id="activity" class="activity"></ol>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="itemDialog">
+    <form method="dialog" id="itemForm">
+      <div class="dialog-header">
+        <div>
+          <p class="eyebrow">Item</p>
+          <h2 id="dialogTitle">Add item</h2>
+        </div>
+        <button value="cancel" class="icon" type="submit">x</button>
+      </div>
+      <input type="hidden" id="itemId">
+      <label>Title
+        <input id="itemTitle" required maxlength="80">
+      </label>
+      <label>Owner
+        <input id="itemOwner" required maxlength="40">
+      </label>
+      <label>Status
+        <select id="itemStatus"></select>
+      </label>
+      <label>Priority
+        <select id="itemPriority">
+          <option>Low</option>
+          <option>Medium</option>
+          <option>High</option>
+          <option>Critical</option>
+        </select>
+      </label>
+      <label>Due date
+        <input id="itemDueDate" type="date">
+      </label>
+      <label>Value
+        <input id="itemValue" type="number" min="0" step="1" value="0">
+      </label>
+      <label>Notes
+        <textarea id="itemNotes" rows="4" maxlength="240"></textarea>
+      </label>
+      <button class="primary" value="default" type="submit">Save item</button>
+    </form>
+  </dialog>
+
   <script src="/app.js"></script>
 </body>
 </html>

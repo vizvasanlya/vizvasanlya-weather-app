@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "python3 -m http.server 5173"
+    "start": "python3 -m http.server 5173",
+    "check": "node --check app.js"
   },
-  "keywords": ["weather-app", "dashboard", "starter"],
   "license": "MIT"
 }

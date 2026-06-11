@@ -1,0 +1,116 @@
+{
+  "name": "vizvasanlya-weather-app",
+  "title": "Weather Planner",
+  "subtitle": "Forecasts, alerts, and activity guidance",
+  "eyebrow": "Weather MVP",
+  "initial": "WX",
+  "accent": "#0ea5e9",
+  "description": "Plan around weather with saved cities, forecasts, alerts, air quality, and activity recommendations.",
+  "metrics": [
+    {
+      "label": "Saved cities",
+      "delta": "Places",
+      "type": "count"
+    },
+    {
+      "label": "Active alerts",
+      "delta": "Safety",
+      "type": "count"
+    },
+    {
+      "label": "Clear forecast rate",
+      "delta": "Plan",
+      "type": "percent"
+    },
+    {
+      "label": "High priority",
+      "delta": "Alert",
+      "type": "count"
+    },
+    {
+      "label": "Coverage value",
+      "delta": "Trips",
+      "type": "currency"
+    }
+  ],
+  "statuses": [
+    "Clear",
+    "Rain later",
+    "Sunny",
+    "Humid",
+    "Cloudy",
+    "Alert"
+  ],
+  "resources": [
+    {
+      "title": "London commute",
+      "owner": "Travel",
+      "status": "Rain later",
+      "priority": "High",
+      "dueDate": "2026-06-14",
+      "value": 120,
+      "detail": "Evening rain expected after work commute.",
+      "notes": "Carry umbrella and adjust bike plan."
+    },
+    {
+      "title": "New York outdoor event",
+      "owner": "Events",
+      "status": "Sunny",
+      "priority": "Medium",
+      "dueDate": "2026-06-16",
+      "value": 260,
+      "detail": "Clear conditions for outdoor setup.",
+      "notes": "Add shade and water stations."
+    },
+    {
+      "title": "Tokyo training run",
+      "owner": "Fitness",
+      "status": "Humid",
+      "priority": "High",
+      "dueDate": "2026-06-15",
+      "value": 180,
+      "detail": "High humidity may affect pace and hydration.",
+      "notes": "Start earlier and carry electrolytes."
+    },
+    {
+      "title": "Berlin site visit",
+      "owner": "Ops",
+      "status": "Cloudy",
+      "priority": "Low",
+      "dueDate": "2026-06-20",
+      "value": 340,
+      "detail": "Mild conditions with light wind.",
+      "notes": "No weather contingency needed."
+    },
+    {
+      "title": "Miami storm watch",
+      "owner": "Safety",
+      "status": "Alert",
+      "priority": "Critical",
+      "dueDate": "2026-06-15",
+      "value": 900,
+      "detail": "Monitor storm updates and travel disruption.",
+      "notes": "Prepare remote work backup plan."
+    },
+    {
+      "title": "Seattle weekend hike",
+      "owner": "Outdoors",
+      "status": "Clear",
+      "priority": "Medium",
+      "dueDate": "2026-06-22",
+      "value": 220,
+      "detail": "Good weekend window for trail plans.",
+      "notes": "Check trail conditions before departure."
+    }
+  ],
+  "activity": [
+    {
+      "text": "Added storm watch alert.",
+      "at": "2026-06-10T06:30:00Z"
+    },
+    {
+      "text": "Created saved city list.",
+      "at": "2026-06-04T08:00:00Z"
+    }
+  ]
+}
