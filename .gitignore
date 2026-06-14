@@ -1,4 +1,39 @@
+# Dependencies
 node_modules/
-.DS_Store
+
+# Environment
 .env
-.env.*
+.env.local
+.env.*.local
+
+# Build output
+dist/
+build/
+output/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Docker
+.docker/
+
+# Data files (keep tracked, but ignore runtime copies)
+# data.json is tracked for demo purposes

@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "python3 -m http.server 5173",
-    "check": "node --check app.js"
+    "check": "node --check app.js",
+    "lint": "echo \"No linter installed\"",
+    "format": "echo \"No formatter installed\""
   },
   "license": "MIT"
 }
